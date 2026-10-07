@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Seni Musik - SMA Transformasi Nusantara</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stn: {
+                            navy: '#0F2B48',
+                            blue: '#00529B',
+                            cyan: '#00A3E0',
+                            orange: '#F97316',
+                            lightBg: '#F4F8FB',
+                            accent: '#FFB800'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .gradient-cover {
+            background: linear-gradient(135deg, rgba(15, 43, 72, 0.95) 0%, rgba(0, 82, 155, 0.88) 60%, rgba(0, 163, 224, 0.8) 100%),
+                        url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .glass-dark {
+            background: rgba(15, 43, 72, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .key-white {
+            background: linear-gradient(to bottom, #ffffff 0%, #f3f4f6 100%);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), inset 0 -2px 4px rgba(0,0,0,0.1);
+        }
+        .key-white:active, .key-white.active {
+            background: #e2e8f0;
+            transform: translateY(2px);
+        }
+        .key-black {
+            background: linear-gradient(to bottom, #1e293b 0%, #0f172a 100%);
+            box-shadow: 0 3px 5px rgba(0,0,0,0.4);
+        }
+        .key-black:active, .key-black.active {
+            background: #00A3E0;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00A3E0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-stn-lightBg text-slate-800 font-sans antialiased selection:bg-stn-cyan selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo Brand -->
+                <a href="#beranda" class="flex items-center gap-3 group">
+                    <div class="relative w-12 h-12 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+                        <!-- Circular Logo Badge -->
+                        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-md">
+                            <circle cx="100" cy="100" r="95" fill="#ffffff" stroke="#0F2B48" stroke-width="6"/>
+                            <circle cx="100" cy="100" r="82" fill="none" stroke="#00A3E0" stroke-width="2" stroke-dasharray="4 2"/>
+                            <!-- Flame Wings Icon -->
+                            <path d="M 60 120 C 50 80, 80 50, 100 35 C 90 70, 110 85, 125 70 C 135 95, 120 120, 100 135 C 85 125, 75 135, 60 120 Z" fill="url(#cyanGrad)"/>
+                            <path d="M 105 130 C 120 120, 145 105, 140 75 C 155 95, 150 125, 130 140 C 115 135, 110 132, 105 130 Z" fill="#F97316"/>
+                            <!-- Inner Eagle Silhouette -->
+                            <path d="M 115 85 C 130 85, 142 92, 148 102 C 140 100, 132 105, 128 112 C 120 98, 115 92, 115 85 Z" fill="#F97316"/>
+                            <!-- Outer Text Arc -->
+                            <path id="textPath" d="M 25, 100 A 75,75 0 1,1 175,100" fill="none" />
+                            <text font-size="11" font-weight="700" fill="#0F2B48" letter-spacing="1">
+                                <textPath href="#textPath" startOffset="50%" text-anchor="middle">
+                                    SEKOLAH TRANSFORMASI NUSANTARA
+                                </textPath>
+                            </text>
+                            <text x="100" y="172" font-size="11" font-weight="800" fill="#0F2B48" text-anchor="middle">S T N</text>
+                            
+                            <defs>
+                                <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#00A3E0"/>
+                                    <stop offset="100%" stop-color="#0F2B48"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="block font-extrabold text-slate-900 text-lg tracking-tight leading-none group-hover:text-stn-blue transition-colors">
+                            SMA Transformasi Nusantara
+                        </span>
+                        <span class="text-xs font-semibold text-stn-cyan tracking-wider uppercase flex items-center gap-1.5 mt-1">
+                            <i class="fa-solid fa-music text-stn-orange"></i> Portal Seni Musik & Edukasi
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#beranda" class="px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-stn-blue hover:bg-slate-100 transition-all">
+                        <i class="fa-solid fa-house text-stn-cyan mr-1.5"></i>Beranda
+                    </a>
+                    <a href="#profil" class="px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-stn-blue hover:bg-slate-100 transition-all">
+                        <i class="fa-solid fa-user-gear text-stn-cyan mr-1.5"></i>Profil Guru
+                    </a>
+                    <a href="#materi" class="px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-stn-blue hover:bg-slate-100 transition-all">
+                        <i class="fa-solid fa-book-open text-stn-cyan mr-1.5"></i>Materi & Kelas
+                    </a>
+                    <a href="#alat-praktik" class="px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-stn-blue hover:bg-slate-100 transition-all">
+                        <i class="fa-solid fa-sliders text-stn-cyan mr-1.5"></i>Studio Praktik
+                    </a>
+                    <a href="#galeri" class="px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-stn-blue hover:bg-slate-100 transition-all">
+                        <i class="fa-solid fa-compact-disc text-stn-cyan mr-1.5"></i>Karya Siswa
+                    </a>
+                    <a href="#panduan-gsite" class="px-3 py-2 rounded-lg text-sm font-semibold text-stn-orange bg-orange-50 border border-orange-200 hover:bg-orange-100 transition-all">
+                        <i class="fa-brands fa-google text-stn-orange mr-1.5"></i>Google Sites Kit
+                    </a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <a href="#kontak" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-stn-navy hover:bg-stn-blue text-white text-sm font-semibold shadow-md shadow-stn-navy/20 transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-paper-plane text-stn-cyan"></i>
+                        <span>Hubungi Guru</span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-2 pb-6 space-y-2">
+            <a href="#beranda" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-slate-700 hover:bg-slate-100">
+                <i class="fa-solid fa-house text-stn-cyan w-6"></i>Beranda
+            </a>
+            <a href="#profil" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-slate-700 hover:bg-slate-100">
+                <i class="fa-solid fa-user-gear text-stn-cyan w-6"></i>Profil Guru Musik
+            </a>
+            <a href="#materi" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-slate-700 hover:bg-slate-100">
+                <i class="fa-solid fa-book-open text-stn-cyan w-6"></i>Materi & Pembelajaran
+            </a>
+            <a href="#alat-praktik" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-slate-700 hover:bg-slate-100">
+                <i class="fa-solid fa-sliders text-stn-cyan w-6"></i>Studio Praktik (Metronom & Piano)
+            </a>
+            <a href="#galeri" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-slate-700 hover:bg-slate-100">
+                <i class="fa-solid fa-compact-disc text-stn-cyan w-6"></i>Karya & Galeri
+            </a>
+            <a href="#panduan-gsite" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-stn-orange bg-orange-50">
+                <i class="fa-brands fa-google text-stn-orange w-6"></i>Panduan Google Sites
+            </a>
+            <a href="#kontak" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-semibold text-white bg-stn-navy text-center mt-2">
+                Hubungi Guru Musik
+            </a>
+        </div>
+    </header>
+
+    <section id="beranda" class="relative gradient-cover text-white py-20 lg:py-28 overflow-hidden">
+        <!-- Background Overlay Decorative Shapes -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <i class="fa-solid fa-music text-9xl absolute -top-10 -left-10 text-white"></i>
+            <i class="fa-solid fa-guitar text-9xl absolute bottom-0 right-10 text-white"></i>
+            <i class="fa-solid fa-drum text-8xl absolute top-1/2 left-1/3 text-white"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Column -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    
+                    <!-- Top Badge with Horizontal STN Logo Replica -->
+                    <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                        <span class="w-2.5 h-2.5 rounded-full bg-stn-orange animate-ping"></span>
+                        <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-cyan-200">
+                            SMA Transformasi Nusantara
+                        </span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
+                        Eksplorasi Harmoni, <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-amber-300">
+                            Transformasi Karakter
+                        </span> Melalui Musik
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-200 max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                        Selamat datang di portal resmi pembelajaran Seni Musik. Wadah kreatif bagi siswa-siswi SMA Transformasi Nusantara untuk mengasah bakat solfeggio, ansambel, komposisi, dan pertunjukan musik.
+                    </p>
+
+                    <!-- Quick Action Buttons -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#materi" class="px-6 py-3.5 rounded-xl bg-stn-orange hover:bg-orange-600 text-white font-bold text-base shadow-lg shadow-orange-500/30 transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                            <span>Buka Materi Musik</span>
+                        </a>
+                        <a href="#alat-praktik" class="px-6 py-3.5 rounded-xl bg-white/15 hover:bg-white/25 text-white font-semibold text-base border border-white/30 backdrop-blur-sm transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-headphones text-stn-cyan"></i>
+                            <span>Coba Tools Metronom & Piano</span>
+                        </a>
+                    </div>
+
+                    <!-- Highlight Badges -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/15 max-w-lg mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl sm:text-3xl font-extrabold text-cyan-300">100%</p>
+                            <p class="text-xs text-slate-300 font-medium">Praktik Interaktif</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl sm:text-3xl font-extrabold text-amber-300">4+</p>
+                            <p class="text-xs text-slate-300 font-medium">Modul Tingkat SMA</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl sm:text-3xl font-extrabold text-cyan-300">STN</p>
+                            <p class="text-xs text-slate-300 font-medium">Standard Kurikulum</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Brand Graphic Banner (Horizontal Logo Visual Mockup) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="glass-dark p-6 sm:p-8 rounded-3xl shadow-2xl border border-white/20 w-full max-w-md relative group hover:border-stn-cyan transition-all duration-500">
+                        
+                        <!-- Floating Music Note Badges -->
+                        <div class="absolute -top-4 -right-4 bg-stn-orange text-white p-3 rounded-2xl shadow-lg transform rotate-12 group-hover:rotate-0 transition-transform">
+                            <i class="fa-solid fa-music text-xl"></i>
+                        </div>
+
+                        <!-- Horizontal STN Logo Recreation Display -->
+                        <div class="bg-white p-6 rounded-2xl shadow-inner flex flex-col items-center justify-center text-center space-y-4">
+                            
+                            <!-- Emblem Graphic -->
+                            <div class="flex items-center justify-center gap-4">
+                                <svg viewBox="0 0 160 120" class="w-24 h-20">
+                                    <!-- Wing/Flame Shape -->
+                                    <path d="M 20 90 C 10 50, 40 20, 70 10 C 55 45, 75 60, 95 45 C 105 70, 90 95, 70 105 C 50 95, 35 105, 20 90 Z" fill="url(#heroCyan)"/>
+                                    <path d="M 75 100 C 90 90, 115 75, 110 45 C 125 65, 120 95, 100 110 C 85 105, 80 102, 75 100 Z" fill="#F97316"/>
+                                    <path d="M 85 55 C 100 55, 112 62, 118 72 C 110 70, 102 75, 98 82 C 90 68, 85 62, 85 55 Z" fill="#F97316"/>
+                                    
+                                    <defs>
+                                        <linearGradient id="heroCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00A3E0"/>
+                                            <stop offset="100%" stop-color="#0F2B48"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+
+                                <!-- Big STN Text -->
+                                <span class="text-5xl font-black tracking-tight text-stn-navy font-sans">
+                                    STN
+                                </span>
+                            </div>
+
+                            <div class="border-t border-slate-200 pt-3 w-full">
+                                <p class="text-xs font-bold tracking-widest text-stn-navy uppercase">
+                                    Sekolah Transformasi Nusantara
+                                </p>
+                                <p class="text-[11px] font-semibold text-stn-cyan mt-0.5">
+                                    Departemen Seni & Budaya
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Info Card Body -->
+                        <div class="mt-6 space-y-3 text-sm text-slate-200">
+                            <div class="flex items-center gap-3 bg-white/10 p-3 rounded-xl">
+                                <i class="fa-solid fa-chalkboard-user text-stn-cyan text-lg"></i>
+                                <div>
+                                    <p class="text-xs text-slate-300">Pengampu Mata Pelajaran</p>
+                                    <p class="font-bold text-white">Guru Seni Musik SMA TN</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3 bg-white/10 p-3 rounded-xl">
+                                <i class="fa-solid fa-graduation-cap text-stn-orange text-lg"></i>
+                                <div>
+                                    <p class="text-xs text-slate-300">Fokus Pembelajaran</p>
+                                    <p class="font-bold text-white">Vokal, Instrumentalia, & Aransemen</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="profil" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-stn-cyan font-bold text-sm uppercase tracking-wider bg-sky-50 px-3 py-1 rounded-full border border-sky-200">
+                    <i class="fa-solid fa-user-check mr-1"></i> Profil Pengajar
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-stn-navy mt-3 tracking-tight">
+                    Mengenal Guru Seni Musik
+                </h2>
+                <p class="text-slate-600 mt-3 text-base sm:text-lg">
+                    Mendedikasikan ilmu musik untuk membimbing generasi muda SMA Transformasi Nusantara menjadi insan yang kreatif, berkarakter, dan berapresiasi seni tinggi.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Avatar / Photo Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md">
+                        <div class="absolute -inset-2 rounded-3xl bg-gradient-to-r from-stn-cyan to-stn-orange opacity-30 blur-lg"></div>
+                        <div class="relative bg-white p-4 rounded-3xl border border-slate-200 shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Guru Musik SMA TN" 
+                                 class="w-full h-80 sm:h-96 object-cover rounded-2xl shadow-md">
+                            
+                            <div class="mt-4 p-3 bg-stn-lightBg rounded-xl flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-stn-navy text-white flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-award text-stn-orange"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-sm">Seni Musik & Pertunjukan</h4>
+                                        <p class="text-xs text-slate-500">SMA Transformasi Nusantara</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-1 rounded-md">
+                                    Aktif Mengajar
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Bio & Vision -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                        <h3 class="text-xl font-bold text-stn-navy mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-quote-left text-stn-cyan"></i>
+                            Visi Pembelajaran Musik di STN
+                        </h3>
+                        <p class="text-slate-700 leading-relaxed italic text-sm sm:text-base">
+                            "Musik bukan sekadar hiburan, melainkan bahasa universal yang melatih kepekaan rasa, kedisiplinan, kerjasama tim, serta kecerdasan emosional siswa. Melalui pendidikan musik di SMA Transformasi Nusantara, setiap siswa diajak untuk menemukan potensi ekspresi terbaik dalam dirinya."
+                        </p>
+                    </div>
+
+                    <!-- Key Pillars -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl border border-slate-200 hover:border-stn-cyan transition-colors bg-white shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-sky-100 text-stn-cyan flex items-center justify-center text-lg font-bold mb-3">
+                                <i class="fa-solid fa-music"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-base">Teori & Solfeggio</h4>
+                            <p class="text-xs text-slate-600 mt-1">Pemahaman notasi balok, not angka, tangga nada, pendengaran ritmis & melodis.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl border border-slate-200 hover:border-stn-orange transition-colors bg-white shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-orange-100 text-stn-orange flex items-center justify-center text-lg font-bold mb-3">
+                                <i class="fa-solid fa-users-line"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-base">Ansambel & Praktik</h4>
+                            <p class="text-xs text-slate-600 mt-1">Latihan kelompok vokal, band sekolah, alat musik tradisional, dan ansambel akustik.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl border border-slate-200 hover:border-stn-navy transition-colors bg-white shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-blue-100 text-stn-navy flex items-center justify-center text-lg font-bold mb-3">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-base">Aransemen Kreatif</h4>
+                            <p class="text-xs text-slate-600 mt-1">Mengubah dan mengkreasi lagu daerah/nasional dengan aransemen modern.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl border border-slate-200 hover:border-stn-cyan transition-colors bg-white shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg font-bold mb-3">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-base">Teknologi Musik Digital</h4>
+                            <p class="text-xs text-slate-600 mt-1">Pengenalan perekaman digital (DAW) dan pembuatan musik berbasis aplikasi.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="materi" class="py-16 sm:py-24 bg-stn-lightBg border-t border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-stn-cyan font-bold text-sm uppercase tracking-wider">
+                        <i class="fa-solid fa-layer-group mr-1"></i> Bahan Ajar & Kurikulum
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-stn-navy mt-2">
+                        Materi Pembelajaran Seni Musik
+                    </h2>
+                    <p class="text-slate-600 mt-1">Pilih kelas untuk mengunduh modul, partitur, dan tugas harian.</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 mt-4 md:mt-0" id="module-tabs">
+                    <button data-target="all" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold bg-stn-navy text-white shadow-sm transition-all">Semua Kelas</button>
+                    <button data-target="kelas10" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">Kelas X</button>
+                    <button data-target="kelas11" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">Kelas XI</button>
+                    <button data-target="kelas12" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">Kelas XII</button>
+                    <button data-target="ekskul" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">Ekstrakurikuler</button>
+                </div>
+            </div>
+
+            <!-- Modules Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="modules-container">
+                
+                <!-- Card 1: Kelas X -->
+                <div class="module-card kelas10 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-sky-100 text-stn-cyan font-bold text-xs px-3 py-1 rounded-full">Kelas X - Semester 1</span>
+                            <span class="text-slate-400 text-xs"><i class="fa-regular fa-clock mr-1"></i>Modul 1</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Dasar Teori Musik & Solfeggio</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                            Mempelajari sistem tangga nada diatonis, simbol notasi balok, ketukan nilai not, serta latihan kepekaan telinga (ear training).
+                        </p>
+                        <div class="space-y-2 text-xs font-medium text-slate-700">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-file-pdf text-red-500"></i> Partitur Solfeggio Dasar.pdf</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-headphones text-stn-cyan"></i> Audio Latihan Interval Dorenmi</div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-semibold">Tugas Active</span>
+                        <button onclick="downloadDemo('Dasar Teori Musik')" class="px-3 py-1.5 rounded-lg bg-stn-cyan hover:bg-sky-600 text-white text-xs font-bold transition-colors flex items-center gap-1">
+                            <i class="fa-solid fa-download"></i> Unduh Modul
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Kelas XI -->
+                <div class="module-card kelas11 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-amber-100 text-stn-orange font-bold text-xs px-3 py-1 rounded-full">Kelas XI - Semester 1</span>
+                            <span class="text-slate-400 text-xs"><i class="fa-regular fa-clock mr-1"></i>Modul 2</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Ansambel Musik Nusantara</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                            Pengenalan instrumen musik tradisional Nusantara, teknik memainkan instrumen campuran, dan harmoni sederhana.
+                        </p>
+                        <div class="space-y-2 text-xs font-medium text-slate-700">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-blue-500"></i> Partitur Ansambel Lagu Daerah.pdf</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-video text-purple-500"></i> Video Panduan Posisi Tangan</div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-semibold">Praktik Kelompok</span>
+                        <button onclick="downloadDemo('Ansambel Musik')" class="px-3 py-1.5 rounded-lg bg-stn-cyan hover:bg-sky-600 text-white text-xs font-bold transition-colors flex items-center gap-1">
+                            <i class="fa-solid fa-download"></i> Unduh Modul
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Kelas XII -->
+                <div class="module-card kelas12 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-indigo-100 text-indigo-700 font-bold text-xs px-3 py-1 rounded-full">Kelas XII - Semester 1</span>
+                            <span class="text-slate-400 text-xs"><i class="fa-regular fa-clock mr-1"></i>Modul 3</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Komposisi & Pertunjukan Musik</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                            Tata cara menciptakan komposisi musik mandiri, manajemen pementasan musik sekolah, serta teknik sound system dasar.
+                        </p>
+                        <div class="space-y-2 text-xs font-medium text-slate-700">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-file-powerpoint text-orange-500"></i> Panduan Proposal Konser STN.pptx</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-list-check text-green-600"></i> Rubrik Penilaian Karya Musik</div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-semibold">Projek Akhir</span>
+                        <button onclick="downloadDemo('Komposisi Musik')" class="px-3 py-1.5 rounded-lg bg-stn-cyan hover:bg-sky-600 text-white text-xs font-bold transition-colors flex items-center gap-1">
+                            <i class="fa-solid fa-download"></i> Unduh Modul
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4: Ekskul Paduan Suara -->
+                <div class="module-card ekskul bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-emerald-100 text-emerald-700 font-bold text-xs px-3 py-1 rounded-full">Ekskul Musik</span>
+                            <span class="text-slate-400 text-xs"><i class="fa-solid fa-users mr-1"></i>STN Choir</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Paduan Suara STN Voice</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                            Latihan pemanasan vokal, pembagian suara (Sopran, Alto, Tenor, Bass), dan persiapan kompetisi antar SMA.
+                        </p>
+                        <div class="space-y-2 text-xs font-medium text-slate-700">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-music text-stn-orange"></i> Partitur SATB Hymne STN.pdf</div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-semibold">Jadwal: Rabu 15:30</span>
+                        <button onclick="downloadDemo('Paduan Suara SATB')" class="px-3 py-1.5 rounded-lg bg-stn-navy hover:bg-stn-blue text-white text-xs font-bold transition-colors flex items-center gap-1">
+                            <i class="fa-solid fa-download"></i> Partitur SATB
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 5: Ekskul Band -->
+                <div class="module-card ekskul bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-emerald-100 text-emerald-700 font-bold text-xs px-3 py-1 rounded-full">Ekskul Musik</span>
+                            <span class="text-slate-400 text-xs"><i class="fa-solid fa-guitar mr-1"></i>Band STN</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Band & Ensemble Akustik</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                            Teknik pembagian instrumen (Gitar, Bass, Drum, Keyboard), chord chart songbook, dan persiapan Pensi Sekolah.
+                        </p>
+                        <div class="space-y-2 text-xs font-medium text-slate-700">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-file-pdf text-red-500"></i> Songbook Chord Pop & Rock.pdf</div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-semibold">Jadwal: Jumat 15:30</span>
+                        <button onclick="downloadDemo('Songbook Band')" class="px-3 py-1.5 rounded-lg bg-stn-navy hover:bg-stn-blue text-white text-xs font-bold transition-colors flex items-center gap-1">
+                            <i class="fa-solid fa-download"></i> Songbook
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 6: Kelas X - Solfeggio Auditory -->
+                <div class="module-card kelas10 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-sky-100 text-stn-cyan font-bold text-xs px-3 py-1 rounded-full">Kelas X - Semester 2</span>
+                            <span class="text-slate-400 text-xs"><i class="fa-regular fa-clock mr-1"></i>Modul 4</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Vokal & Teknik Percobaan Sound</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                            Teknik pernapasan diafragma, artikulasi, intonasi, dan ekspresi panggung untuk penyanyi solo maupun vokal grup.
+                        </p>
+                        <div class="space-y-2 text-xs font-medium text-slate-700">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-file-pdf text-red-500"></i> Latihan Vokal Diafragma.pdf</div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-semibold">Latihan Mandiri</span>
+                        <button onclick="downloadDemo('Teknik Vokal')" class="px-3 py-1.5 rounded-lg bg-stn-cyan hover:bg-sky-600 text-white text-xs font-bold transition-colors flex items-center gap-1">
+                            <i class="fa-solid fa-download"></i> Unduh Modul
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="alat-praktik" class="py-16 sm:py-24 bg-stn-navy text-white relative overflow-hidden">
+        <!-- Background Blur Lights -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-stn-cyan/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-stn-orange/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-stn-cyan font-bold text-sm uppercase tracking-wider bg-white/10 px-4 py-1.5 rounded-full border border-white/20">
+                    <i class="fa-solid fa-sliders mr-1 text-stn-orange"></i> Tools Siswa Interaktif
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+                    Studio Praktik Musik Digital
+                </h2>
+                <p class="text-slate-300 mt-2 text-sm sm:text-base">
+                    Gunakan Metronom & Virtual Piano berikut langsung dari browser HP atau Laptop Anda untuk latihan ritme dan picing solfeggio.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- METRONOME TOOL -->
+                <div class="lg:col-span-5 bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/20 shadow-2xl">
+                    <div class="flex items-center justify-between mb-6 border-b border-white/15 pb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-stn-orange text-white flex items-center justify-center font-bold text-lg">
+                                <i class="fa-solid fa-stopwatch"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-extrabold text-lg text-white">Metronom Digital</h3>
+                                <p class="text-xs text-cyan-200">Pengatur Tempo Latihan</p>
+                            </div>
+                        </div>
+                        <span id="tempo-label" class="text-xs font-bold px-2.5 py-1 rounded bg-white/20 text-white">Allegro</span>
+                    </div>
+
+                    <!-- BPM Display -->
+                    <div class="text-center py-6 bg-slate-900/60 rounded-2xl border border-white/10 my-4">
+                        <span id="bpm-display" class="text-6xl font-black text-stn-cyan font-mono tracking-tight">120</span>
+                        <span class="block text-xs font-semibold uppercase tracking-widest text-slate-400 mt-1">BPM (Beats Per Minute)</span>
+                        
+                        <!-- Visual Pulse Dot -->
+                        <div class="flex justify-center items-center gap-2 mt-4">
+                            <div id="beat-1" class="w-3.5 h-3.5 rounded-full bg-slate-600 transition-colors"></div>
+                            <div id="beat-2" class="w-3.5 h-3.5 rounded-full bg-slate-600 transition-colors"></div>
+                            <div id="beat-3" class="w-3.5 h-3.5 rounded-full bg-slate-600 transition-colors"></div>
+                            <div id="beat-4" class="w-3.5 h-3.5 rounded-full bg-slate-600 transition-colors"></div>
+                        </div>
+                    </div>
+
+                    <!-- Metronome Slider -->
+                    <div class="space-y-4 my-6">
+                        <div class="flex justify-between text-xs text-slate-300 font-semibold">
+                            <span>Lento (40)</span>
+                            <span>Moderato (108)</span>
+                            <span>Presto (200)</span>
+                        </div>
+                        <input type="range" id="bpm-range" min="40" max="220" value="120" 
+                               class="w-full h-2.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-stn-cyan">
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="flex items-center justify-center gap-4 pt-2">
+                        <button id="tempo-minus" class="w-12 h-12 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-95 transition-all flex items-center justify-center text-lg font-bold">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        
+                        <button id="metronome-toggle" class="flex-1 py-3.5 rounded-2xl bg-stn-orange hover:bg-orange-600 active:scale-95 text-white font-extrabold text-base shadow-lg shadow-orange-500/30 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-play" id="metro-icon"></i>
+                            <span id="metro-text">Mulai Metronom</span>
+                        </button>
+
+                        <button id="tempo-plus" class="w-12 h-12 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-95 transition-all flex items-center justify-center text-lg font-bold">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- VIRTUAL PIANO KEYBOARD TOOL -->
+                <div class="lg:col-span-7 bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/20 shadow-2xl">
+                    <div class="flex items-center justify-between mb-6 border-b border-white/15 pb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-stn-cyan text-slate-900 flex items-center justify-center font-bold text-lg">
+                                <i class="fa-solid fa-keyboard"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-extrabold text-lg text-white">Virtual Solfeggio Piano</h3>
+                                <p class="text-xs text-cyan-200">Uji Nada & Chord (Web Audio Synthesizer)</p>
+                            </div>
+                        </div>
+                        <span id="last-note" class="text-xs font-bold px-3 py-1 rounded-full bg-stn-cyan text-slate-900 font-mono">Nada: -</span>
+                    </div>
+
+                    <p class="text-xs text-slate-300 mb-6">
+                        Klik atau ketuk tuts di bawah ini untuk mendengarkan frekuensi nada dasar (Do Re Mi Fa Sol La Si Do).
+                    </p>
+
+                    <!-- Piano Keys Container -->
+                    <div class="relative flex justify-center items-start h-48 sm:h-56 p-4 bg-slate-950 rounded-2xl border border-white/10 select-none overflow-x-auto">
+                        
+                        <!-- White Keys -->
+                        <div class="flex relative z-10 space-x-1">
+                            <button data-note="C4" data-freq="261.63" class="key-white w-9 sm:w-12 h-40 sm:h-48 rounded-b-lg flex flex-col justify-end items-center pb-3 text-slate-800 font-bold text-xs transition-all">
+                                <span class="text-[10px] text-slate-400 font-normal">C</span>
+                                <span>Do</span>
+                            </button>
+                            <button data-note="D4" data-freq="293.66" class="key-white w-9 sm:w-12 h-40 sm:h-48 rounded-b-lg flex flex-col justify-end items-center pb-3 text-slate-800 font-bold text-xs transition-all">
+                                <span class="text-[10px] text-slate-400 font-normal">D</span>
+                                <span>Re</span>
+                            </button>
+                            <button data-note="E4" data-freq="329.63" class="key-white w-9 sm:w-12 h-40 sm:h-48 rounded-b-lg flex flex-col justify-end items-center pb-3 text-slate-800 font-bold text-xs transition-all">
+                                <span class="text-[10px] text-slate-400 font-normal">E</span>
+                                <span>Mi</span>
+                            </button>
+                            <button data-note="F4" data-freq="349.23" class="key-white w-9 sm:w-12 h-40 sm:h-48 rounded-b-lg flex flex-col justify-end items-center pb-3 text-slate-800 font-bold text-xs transition-all">
+                                <span class="text-[10px] text-slate-400 font-normal">F</span>
+                                <span>Fa</span>
+                            </button>
+                            <button data-note="G4" data-freq="392.00" class="key-white w-9 sm:w-12 h-40 sm:h-48 rounded-b-lg flex flex-col justify-end items-center pb-3 text-slate-800 font-bold text-xs transition-all">
+                                <span class="text-[10px] text-slate-400 font-normal">G</span>
+                                <span>Sol</span>
+                            </button>
+                            <button data-note="A4" data-freq="440.00" class="key-white w-9 sm:w-12 h-40 sm:h-48 rounded-b-lg flex flex-col justify-end items-center pb-3 text-slate-800 font-bold text-xs transition-all">
+                                <span class="text-[10px] text-slate-400 font-normal">A</span>
+                                <span>La</span>
+                            </button>
+                            <button data-note="B4" data-freq="493.88" class="key-white w-9 sm:w-12 h-40 sm:h-48 rounded-b-lg flex flex-col justify-end items-center pb-3 text-slate-800 font-bold text-xs transition-all">
+                                <span class="text-[10px] text-slate-400 font-normal">B</span>
+                                <span>Si</span>
+                            </button>
+                            <button data-note="C5" data-freq="523.25" class="key-white w-9 sm:w-12 h-40 sm:h-48 rounded-b-lg flex flex-col justify-end items-center pb-3 text-slate-800 font-bold text-xs transition-all">
+                                <span class="text-[10px] text-slate-400 font-normal">C'</span>
+                                <span>Do'</span>
+                            </button>
+                        </div>
+
+                        <!-- Black Keys (Accidentals) Overlay -->
+                        <div class="absolute z-20 flex pointer-events-none left-[2.2rem] sm:left-[2.8rem] space-x-4 sm:space-x-[1.85rem]">
+                            <button data-note="C#4" data-freq="277.18" class="pointer-events-auto key-black w-6 sm:w-7 h-24 sm:h-28 rounded-b-md text-[9px] text-white flex items-end justify-center pb-2 font-semibold">C#</button>
+                            <button data-note="D#4" data-freq="311.13" class="pointer-events-auto key-black w-6 sm:w-7 h-24 sm:h-28 rounded-b-md text-[9px] text-white flex items-end justify-center pb-2 font-semibold">D#</button>
+                            <div class="w-6 sm:w-7 opacity-0 pointer-events-none"></div> <!-- Gap between E & F -->
+                            <button data-note="F#4" data-freq="369.99" class="pointer-events-auto key-black w-6 sm:w-7 h-24 sm:h-28 rounded-b-md text-[9px] text-white flex items-end justify-center pb-2 font-semibold">F#</button>
+                            <button data-note="G#4" data-freq="415.30" class="pointer-events-auto key-black w-6 sm:w-7 h-24 sm:h-28 rounded-b-md text-[9px] text-white flex items-end justify-center pb-2 font-semibold">G#</button>
+                            <button data-note="A#4" data-freq="466.16" class="pointer-events-auto key-black w-6 sm:w-7 h-24 sm:h-28 rounded-b-md text-[9px] text-white flex items-end justify-center pb-2 font-semibold">A#</button>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-4 flex items-center justify-between text-xs text-slate-300">
+                        <span><i class="fa-solid fa-circle-info text-stn-cyan mr-1"></i>Web Audio Synth</span>
+                        <span>Dioptimalkan untuk HP & Laptop</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="galeri" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-stn-orange font-bold text-sm uppercase tracking-wider bg-orange-50 px-4 py-1.5 rounded-full border border-orange-200">
+                    <i class="fa-solid fa-photo-film mr-1"></i> Dokumentasi & Karya
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-stn-navy mt-3">
+                    Galeri Penampilan & Rekaman Siswa
+                </h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">
+                    Apresiasi hasil latihan ansambel, paduan suara, dan konser seni musik SMA Transformasi Nusantara.
+                </p>
+            </div>
+
+            <!-- Audio Showcase Player Box -->
+            <div class="bg-gradient-to-r from-stn-navy to-stn-blue p-6 sm:p-8 rounded-3xl text-white shadow-xl mb-12 border border-stn-cyan/30">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    
+                    <div class="md:col-span-5 flex items-center gap-4">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-stn-cyan text-slate-900 flex items-center justify-center font-bold text-2xl flex-shrink-0 shadow-lg">
+                            <i class="fa-solid fa-compact-disc animate-spin" style="animation-duration: 8s;"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-stn-orange">Audio Player Demo</span>
+                            <h3 id="player-title" class="text-lg sm:text-xl font-extrabold text-white">Hymne STN - Choir Arrangement</h3>
+                            <p id="player-artist" class="text-xs text-slate-300">STN Voice & Chamber Ensemble</p>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-7 space-y-3">
+                        <div class="flex items-center justify-center md:justify-end gap-3">
+                            <button onclick="prevTrack()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-backward-step"></i>
+                            </button>
+                            <button id="audio-play-btn" onclick="toggleAudioDemo()" class="w-12 h-12 rounded-full bg-stn-orange hover:bg-orange-600 text-white flex items-center justify-center text-lg font-bold shadow-lg shadow-orange-500/40 transition-transform active:scale-95">
+                                <i class="fa-solid fa-play" id="audio-play-icon"></i>
+                            </button>
+                            <button onclick="nextTrack()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-forward-step"></i>
+                            </button>
+                        </div>
+
+                        <!-- Progress Bar Visual -->
+                        <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                            <div id="audio-progress" class="bg-stn-cyan h-full w-1/3 transition-all"></div>
+                        </div>
+                        <div class="flex justify-between text-[11px] text-slate-300 font-mono">
+                            <span id="current-time">01:15</span>
+                            <span id="total-time">03:45</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Image Item 1 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-md border border-slate-200 bg-slate-100">
+                    <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80" 
+                         alt="Konser Musik STN" 
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-stn-navy/90 via-stn-navy/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end text-white">
+                        <span class="text-xs text-stn-cyan font-bold uppercase">Pementasan Pensi</span>
+                        <h4 class="font-bold text-base mt-1">Konser Musik Tahunan STN</h4>
+                        <p class="text-xs text-slate-300 mt-1">Penampilan Ansambel Gabungan Kelas XI & XII</p>
+                    </div>
+                </div>
+
+                <!-- Image Item 2 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-md border border-slate-200 bg-slate-100">
+                    <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=800&q=80" 
+                         alt="Latihan Band STN" 
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-stn-navy/90 via-stn-navy/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end text-white">
+                        <span class="text-xs text-stn-orange font-bold uppercase">Studio Musik</span>
+                        <h4 class="font-bold text-base mt-1">Sesi Jamming Band Sekolah</h4>
+                        <p class="text-xs text-slate-300 mt-1">Latihan Persiapan Lomba Musik Pelajar</p>
+                    </div>
+                </div>
+
+                <!-- Image Item 3 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-md border border-slate-200 bg-slate-100">
+                    <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=800&q=80" 
+                         alt="Paduan Suara STN" 
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-stn-navy/90 via-stn-navy/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end text-white">
+                        <span class="text-xs text-stn-cyan font-bold uppercase">STN Choir</span>
+                        <h4 class="font-bold text-base mt-1">Paduan Suara Upacara Bendera</h4>
+                        <p class="text-xs text-slate-300 mt-1">Tim Vokal Pembawa Lagu Nasional</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="panduan-gsite" class="py-16 sm:py-24 bg-gradient-to-br from-slate-900 via-stn-navy to-slate-900 text-white border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-stn-orange font-bold text-sm uppercase tracking-wider bg-white/10 px-4 py-1.5 rounded-full border border-white/20">
+                    <i class="fa-brands fa-google mr-1 text-stn-cyan"></i> Panduan Bikin di Google Sites
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+                    Panduan & Kit Desain Google Sites
+                </h2>
+                <p class="text-slate-300 mt-2 text-sm sm:text-base">
+                    Gunakan panduan palet warna, struktur banner cover, dan icon di bawah ini saat menyusun website Anda di <strong class="text-stn-cyan">sites.google.com</strong>.
+                </p>
+            </div>
+
+            <!-- Kit Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                
+                <!-- Card 1: Colors -->
+                <div class="bg-white/10 p-6 rounded-2xl border border-white/15">
+                    <h3 class="font-bold text-lg text-white mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-palette text-stn-cyan"></i> Kode Warna Logo STN
+                    </h3>
+                    <p class="text-xs text-slate-300 mb-4">Salin kode Hex ini ke menu **Themes Custom Color** di Google Sites:</p>
+                    
+                    <div class="space-y-2 text-xs font-mono">
+                        <div class="flex items-center justify-between p-2.5 rounded bg-slate-800">
+                            <span class="flex items-center gap-2"><span class="w-4 h-4 rounded-full bg-[#0F2B48] inline-block border border-white/20"></span> STN Navy</span>
+                            <span class="font-bold text-stn-cyan">#0F2B48</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 rounded bg-slate-800">
+                            <span class="flex items-center gap-2"><span class="w-4 h-4 rounded-full bg-[#00A3E0] inline-block"></span> STN Cyan Blue</span>
+                            <span class="font-bold text-stn-cyan">#00A3E0</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 rounded bg-slate-800">
+                            <span class="flex items-center gap-2"><span class="w-4 h-4 rounded-full bg-[#F97316] inline-block"></span> STN Accent Orange</span>
+                            <span class="font-bold text-stn-cyan">#F97316</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Cover & Logo Placement -->
+                <div class="bg-white/10 p-6 rounded-2xl border border-white/15">
+                    <h3 class="font-bold text-lg text-white mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-image text-stn-orange"></i> Layout Header Cover
+                    </h3>
+                    <ul class="space-y-2.5 text-xs text-slate-300 list-disc list-inside">
+                        <li><strong>Logo Situs (Kiri Atas):</strong> Upload <span class="text-cyan-200">Logo Bulat STN</span> sebagai Logo Header & Favicon.</li>
+                        <li><strong>Banner Hero Cover:</strong> Upload background instrumen/studio musik, lalu tambahkan overlay warna Navy Blue.</li>
+                        <li><strong>Judul Banner:</strong> "Seni Musik SMA Transformasi Nusantara".</li>
+                        <li><strong>Subjudul Banner:</strong> "Ruang Pembelajaran, Ekpresi, & Harmoni Musik".</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Menus & Embeds -->
+                <div class="bg-white/10 p-6 rounded-2xl border border-white/15">
+                    <h3 class="font-bold text-lg text-white mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-cubes text-stn-cyan"></i> Elemen Interaktif Google
+                    </h3>
+                    <ul class="space-y-2.5 text-xs text-slate-300 list-disc list-inside">
+                        <li><strong>Google Drive Embed:</strong> Sisipkan folder materi PDF untuk partitur notasi balok tiap kelas.</li>
+                        <li><strong>YouTube Embed:</strong> Masukkan video hasil pertunjukan konser sekolah & tutorial vokal.</li>
+                        <li><strong>Google Form Embed:</strong> Gunakan formulir untuk pengumpulan tugas rekaman audio siswa.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copy Text Template Accordion/Box -->
+            <div class="bg-slate-900 p-6 rounded-2xl border border-slate-700">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
+                    <div>
+                        <h4 class="font-bold text-white text-base">Teks Sambutan Beranda (Siap Copas)</h4>
+                        <p class="text-xs text-slate-400">Dapat ditempatkan di seksi pertama Google Sites Anda</p>
+                    </div>
+                    <button onclick="copyWelcomeText()" class="px-4 py-2 rounded-lg bg-stn-cyan hover:bg-sky-600 text-slate-900 font-bold text-xs transition-colors flex items-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Copy Teks Sambutan
+                    </button>
+                </div>
+                <textarea id="welcome-text-area" readonly class="w-full h-28 bg-slate-950 text-slate-300 text-xs p-3 rounded-xl border border-slate-800 font-mono focus:outline-none">Selamat Datang di Portal Pembelajaran Seni Musik SMA Transformasi Nusantara!
+
+Website ini dirancang khusus sebagai pusat informasi, materi ajar, partitur lagu, serta dokumentasi karya musik siswa. Mari bersama-sama mengeksplorasi keindahan musik, mengasah bakat vokal & instrumen, serta membangun karakter transformasi yang berbudaya.</textarea>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="kontak" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-stn-cyan font-bold text-sm uppercase tracking-wider">
+                            <i class="fa-solid fa-envelope-open mr-1"></i> Kontak & Bimbingan
+                        </span>
+                        <h2 class="text-3xl font-extrabold text-stn-navy mt-2">
+                            Hubungi Guru Musik
+                        </h2>
+                        <p class="text-slate-600 mt-2 text-sm">
+                            Punya pertanyaan seputar materi, tugas mandiri, atau konsultasi ekstrakurikuler musik? Silakan kirim pesan melalui formulir di bawah ini.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 text-sm">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="w-10 h-10 rounded-lg bg-stn-navy text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
+                                <i class="fa-solid fa-school"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Ruang Musik & Studio</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">Gedung Seni & Kebudayaan, SMA Transformasi Nusantara</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="w-10 h-10 rounded-lg bg-stn-cyan text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Jam Konsultasi Siswa</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">Senin - Jumat | 14:00 - 16:00 WIB</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="w-10 h-10 rounded-lg bg-stn-orange text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Email Pembelajaran</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">gurumusik@smatransformasinusantara.sch.id</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Form -->
+                <div class="lg:col-span-7 bg-stn-lightBg p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg">
+                    <h3 class="text-xl font-bold text-stn-navy mb-1">Formulir Pesan & Tugas Siswa</h3>
+                    <p class="text-xs text-slate-500 mb-6">Pesan Anda akan terikat langsung dengan Google Form guru.</p>
+
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Nama Lengkap Siswa</label>
+                                <input type="text" required placeholder="Contoh: Ahmad Rizky" 
+                                       class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-stn-cyan focus:outline-none text-sm bg-white">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Kelas & Jurusan</label>
+                                <input type="text" required placeholder="Contoh: XI-MIPA 2" 
+                                       class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-stn-cyan focus:outline-none text-sm bg-white">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Topik Keperluan</label>
+                            <select class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-stn-cyan focus:outline-none text-sm bg-white">
+                                <option>Pertanyaan Materi Kelas</option>
+                                <option>Pengumpulan Rekaman Tugas Vokal / Musik</option>
+                                <option>Pendaftaran Ekstrakurikuler Band / Choir</option>
+                                <option>Konsert & Event Musik</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Pesan / Link Tugas Drive Audio</label>
+                            <textarea rows="4" required placeholder="Tuliskan pertanyaan Anda atau sertakan link Google Drive file MP3/Partitur..." 
+                                      class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-stn-cyan focus:outline-none text-sm bg-white"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-stn-navy hover:bg-stn-blue text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane text-stn-cyan"></i>
+                            <span>Kirim Pesan Ke Guru</span>
+                        </button>
+                    </form>
+
+                    <div id="form-message" class="hidden mt-4 p-4 rounded-xl bg-green-100 border border-green-300 text-green-800 text-xs font-semibold text-center">
+                        <i class="fa-solid fa-circle-check text-green-600 mr-1.5"></i> Pesan Anda berhasil terkirim! Guru akan merespons melalui kelas.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-stn-navy text-slate-300 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8 pb-8 border-b border-slate-800">
+                
+                <div class="md:col-span-5 space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-white text-stn-navy flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-music text-stn-cyan"></i>
+                        </div>
+                        <span class="font-extrabold text-white text-lg">SMA Transformasi Nusantara</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                        Portal Edukasi Seni Musik resmi untuk memfasilitasi proses belajar mengajar, latihan solfeggio, dan pengembangan potensi musikalitas siswa STN.
+                    </p>
+                </div>
+
+                <div class="md:col-span-3">
+                    <h4 class="font-bold text-white text-sm mb-3">Navigasi Cepat</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#beranda" class="hover:text-stn-cyan transition-colors">Beranda</a></li>
+                        <li><a href="#profil" class="hover:text-stn-cyan transition-colors">Profil Guru Musik</a></li>
+                        <li><a href="#materi" class="hover:text-stn-cyan transition-colors">Modul Kelas X, XI, XII</a></li>
+                        <li><a href="#alat-praktik" class="hover:text-stn-cyan transition-colors">Metronom & Piano Online</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4">
+                    <h4 class="font-bold text-white text-sm mb-3">Sekolah Transformasi Nusantara</h4>
+                    <p class="text-xs text-slate-400 mb-2">Mengembangkan Insan Nusantara yang Berkarakter & Berdaya Saing.</p>
+                    <div class="flex items-center gap-3 text-lg text-slate-400">
+                        <a href="#" class="hover:text-stn-cyan"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="hover:text-stn-cyan"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-stn-cyan"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+                <p>&copy; 2026 Portal Seni Musik - SMA Transformasi Nusantara (STN). All rights reserved.</p>
+                <p>Designed for Google Sites & Web Interactive</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')){
+                menuIcon.className = "fa-solid fa-bars text-xl";
+            } else {
+                menuIcon.className = "fa-solid fa-xmark text-xl";
+            }
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = "fa-solid fa-bars text-xl";
+            });
+        });
+
+        // --- Module Class Tab Filtering ---
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const moduleCards = document.querySelectorAll('.module-card');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active styling from all tabs
+                tabBtns.forEach(b => {
+                    b.className = "tab-btn px-4 py-2 rounded-lg text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all";
+                });
+                // Set active on clicked
+                btn.className = "tab-btn px-4 py-2 rounded-lg text-xs font-bold bg-stn-navy text-white shadow-sm transition-all";
+
+                const target = btn.getAttribute('data-target');
+
+                moduleCards.forEach(card => {
+                    if(target === 'all' || card.classList.contains(target)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // --- METRONOME ENGINE ---
+        let audioCtx = null;
+        let isMetronomeRunning = false;
+        let bpm = 120;
+        let metronomeInterval = null;
+        let currentBeat = 0;
+
+        const bpmRange = document.getElementById('bpm-range');
+        const bpmDisplay = document.getElementById('bpm-display');
+        const metroBtn = document.getElementById('metronome-toggle');
+        const metroIcon = document.getElementById('metro-icon');
+        const metroText = document.getElementById('metro-text');
+        const tempoLabel = document.getElementById('tempo-label');
+
+        function updateTempoLabel(val) {
+            if (val < 60) tempoLabel.textContent = "Largo (Sangat Lambat)";
+            else if (val < 76) tempoLabel.textContent = "Adagio (Lambat)";
+            else if (val < 108) tempoLabel.textContent = "Andante (Sedang)";
+            else if (val < 120) tempoLabel.textContent = "Moderato (Cepat Sedang)";
+            else if (val < 156) tempoLabel.textContent = "Allegro (Cepat & Ceria)";
+            else tempoLabel.textContent = "Presto (Sangat Cepat)";
+        }
+
+        bpmRange.addEventListener('input', (e) => {
+            bpm = parseInt(e.target.value);
+            bpmDisplay.textContent = bpm;
+            updateTempoLabel(bpm);
+            if(isMetronomeRunning) {
+                restartMetronome();
+            }
+        });
+
+        document.getElementById('tempo-minus').addEventListener('click', () => {
+            if(bpm > 40) {
+                bpm--;
+                bpmRange.value = bpm;
+                bpmDisplay.textContent = bpm;
+                updateTempoLabel(bpm);
+                if(isMetronomeRunning) restartMetronome();
+            }
+        });
+
+        document.getElementById('tempo-plus').addEventListener('click', () => {
+            if(bpm < 220) {
+                bpm++;
+                bpmRange.value = bpm;
+                bpmDisplay.textContent = bpm;
+                updateTempoLabel(bpm);
+                if(isMetronomeRunning) restartMetronome();
+            }
+        });
+
+        function playClickSound(isHigh) {
+            if(!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if(audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.value = isHigh ? 1000 : 600; // Pitch click high for 1st beat
+
+            gain.gain.setValueAtTime(0.8, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.05);
+        }
+
+        function triggerBeatAnimation() {
+            // Flash beats 1-4
+            const beats = [
+                document.getElementById('beat-1'),
+                document.getElementById('beat-2'),
+                document.getElementById('beat-3'),
+                document.getElementById('beat-4')
+            ];
+
+            beats.forEach((b, idx) => {
+                if(idx === currentBeat) {
+                    b.className = idx === 0 ? "w-3.5 h-3.5 rounded-full bg-stn-orange scale-125 transition-all" : "w-3.5 h-3.5 rounded-full bg-stn-cyan scale-125 transition-all";
+                } else {
+                    b.className = "w-3.5 h-3.5 rounded-full bg-slate-600 transition-all";
+                }
+            });
+
+            playClickSound(currentBeat === 0);
+            currentBeat = (currentBeat + 1) % 4;
+        }
+
+        function startMetronome() {
+            isMetronomeRunning = true;
+            currentBeat = 0;
+            metroIcon.className = "fa-solid fa-pause";
+            metroText.textContent = "Hentikan Metronom";
+            metroBtn.className = "flex-1 py-3.5 rounded-2xl bg-red-600 hover:bg-red-700 active:scale-95 text-white font-extrabold text-base shadow-lg transition-all flex items-center justify-center gap-2";
+            
+            triggerBeatAnimation();
+            const intervalMs = (60 / bpm) * 1000;
+            metronomeInterval = setInterval(triggerBeatAnimation, intervalMs);
+        }
+
+        function stopMetronome() {
+            isMetronomeRunning = false;
+            clearInterval(metronomeInterval);
+            metroIcon.className = "fa-solid fa-play";
+            metroText.textContent = "Mulai Metronom";
+            metroBtn.className = "flex-1 py-3.5 rounded-2xl bg-stn-orange hover:bg-orange-600 active:scale-95 text-white font-extrabold text-base shadow-lg shadow-orange-500/30 transition-all flex items-center justify-center gap-2";
+            
+            [1,2,3,4].forEach(i => {
+                document.getElementById(`beat-${i}`).className = "w-3.5 h-3.5 rounded-full bg-slate-600 transition-all";
+            });
+        }
+
+        function restartMetronome() {
+            clearInterval(metronomeInterval);
+            const intervalMs = (60 / bpm) * 1000;
+            metronomeInterval = setInterval(triggerBeatAnimation, intervalMs);
+        }
+
+        metroBtn.addEventListener('click', () => {
+            if(isMetronomeRunning) {
+                stopMetronome();
+            } else {
+                startMetronome();
+            }
+        });
+
+        // --- VIRTUAL PIANO WEB AUDIO SYNTH ---
+        function playNoteFreq(freq, noteName) {
+            if(!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if(audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = 'triangle'; // Rich piano-like timbre
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+            gain.gain.setValueAtTime(0.5, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.2);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start();
+            osc.stop(audioCtx.currentTime + 1.2);
+
+            document.getElementById('last-note').textContent = `Nada: ${noteName}`;
+        }
+
+        document.querySelectorAll('[data-freq]').forEach(key => {
+            key.addEventListener('mousedown', (e) => {
+                const freq = parseFloat(key.getAttribute('data-freq'));
+                const note = key.getAttribute('data-note');
+                playNoteFreq(freq, note);
+                key.classList.add('active');
+            });
+
+            key.addEventListener('mouseup', () => key.classList.remove('active'));
+            key.addEventListener('mouseleave', () => key.classList.remove('active'));
+
+            key.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                const freq = parseFloat(key.getAttribute('data-freq'));
+                const note = key.getAttribute('data-note');
+                playNoteFreq(freq, note);
+                key.classList.add('active');
+            });
+            key.addEventListener('touchend', () => key.classList.remove('active'));
+        });
+
+        // --- AUDIO SHOWCASE SIMULATOR ---
+        const playlist = [
+            { title: "Hymne STN - Choir Arrangement", artist: "STN Voice & Chamber Ensemble", duration: "03:45" },
+            { title: "Rayuan Pulau Kelapa (Ansambel Akustik)", artist: "Kelas XI MIPA STN", duration: "02:50" },
+            { title: "Melodi Nusantara Fusion", artist: "Band Ekstrakurikuler STN", duration: "04:12" }
+        ];
+        let currentTrackIdx = 0;
+        let isAudioPlaying = false;
+
+        function updateTrackDisplay() {
+            const track = playlist[currentTrackIdx];
+            document.getElementById('player-title').textContent = track.title;
+            document.getElementById('player-artist').textContent = track.artist;
+            document.getElementById('total-time').textContent = track.duration;
+        }
+
+        function toggleAudioDemo() {
+            isAudioPlaying = !isAudioPlaying;
+            const playIcon = document.getElementById('audio-play-icon');
+            if(isAudioPlaying) {
+                playIcon.className = "fa-solid fa-pause";
+            } else {
+                playIcon.className = "fa-solid fa-play";
+            }
+        }
+
+        function nextTrack() {
+            currentTrackIdx = (currentTrackIdx + 1) % playlist.length;
+            updateTrackDisplay();
+        }
+
+        function prevTrack() {
+            currentTrackIdx = (currentTrackIdx - 1 + playlist.length) % playlist.length;
+            updateTrackDisplay();
+        }
+
+        // --- HELPER UTILS ---
+        function downloadDemo(namaModul) {
+            const text = `Modul "${namaModul}" - SMA Transformasi Nusantara.\n\nDalam versi live Google Sites, tombol ini langsung mengunduh file PDF dari Google Drive Sekolah.`;
+            alert(text);
+        }
+
+        function copyWelcomeText() {
+            const textarea = document.getElementById('welcome-text-area');
+            textarea.select();
+            document.execCommand('copy');
+            alert('Teks sambutan berhasil disalin! Tinggal Paste di Google Sites Anda.');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const msg = document.getElementById('form-message');
+            msg.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+
+</body>
+</html>
