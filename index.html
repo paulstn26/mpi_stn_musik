@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f3eb">
+  <meta name="description" content="Aplikasi belajar interaktif Seni Musik SMA/MA Kelas XI Bab 2: Apresiasi, Estetika, Etika, dan Penilaian Karya Musik.">
+  <title>Ruang Musik — Apresiasi & Penilaian</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#beranda" aria-label="Ruang Musik, beranda">
+      <span class="brand-mark" aria-hidden="true">♫</span>
+      <span>ruang<span class="brand-accent">musik</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <a href="#materi" data-nav="materi">Materi</a>
+      <a href="#kuis" data-nav="kuis">Kuis</a>
+      <a href="#kartu" data-nav="kartu">Kartu Belajar</a>
+      <a href="#evaluasi" data-nav="evaluasi">Evaluasi</a>
+    </nav>
+    <a class="header-cta" href="#materi">Mulai belajar <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> SENI MUSIK · SMA/MA KELAS XI · BAB 2</p>
+        <h1>Mendengar lebih dalam.<br><span>Menilai dengan bijak.</span></h1>
+        <p class="hero-intro">Jelajahi apresiasi, estetika, dan etika musik—lalu latih cara mengulas karya secara objektif.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#materi">Jelajahi materi <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="#kuis">Langsung ke kuis <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-meta"><span class="meta-icon" aria-hidden="true">◷</span> 4 topik belajar <span class="meta-separator">·</span> Kuis interaktif <span class="meta-separator">·</span> Alat evaluasi</div>
+      </div>
+      <div class="hero-art" aria-label="Ilustrasi abstrak gelombang suara dan piringan musik" role="img">
+        <div class="art-note note-one">♪</div>
+        <div class="art-note note-two">♫</div>
+        <div class="record"><div class="record-groove"></div><div class="record-label"><span>RM</span></div></div>
+        <div class="sound-wave wave-one"></div><div class="sound-wave wave-two"></div>
+        <div class="art-caption"><span>01 / 04</span><span>APRESIASI MUSIK</span></div>
+      </div>
+      <div class="hero-bottom"><span>01</span><span class="hero-bottom-line"></span><span>BELAJAR DENGAN MENDENGAR</span><span class="hero-bottom-spacer"></span><span>SCROLL UNTUK MENJELAJAHI ↓</span></div>
+    </section>
+
+    <section class="section learning-section" id="materi">
+      <div class="section-heading">
+        <div><p class="eyebrow">PANDUAN BELAJAR</p><h2>Kenali musik dari<br><span>berbagai sudut.</span></h2></div>
+        <p class="section-lede">Pahami nilai, keindahan, etika, dan cara menilai musik. Pilih topik untuk membuka ringkasan serta contoh-contohnya.</p>
+      </div>
+      <div class="topic-layout">
+        <div class="topic-list" role="tablist" aria-label="Topik materi" id="topic-tabs"></div>
+        <article class="topic-content" id="topic-content" role="tabpanel" tabindex="0" aria-live="polite"></article>
+      </div>
+    </section>
+
+    <section class="section quiz-section" id="kuis">
+      <div class="section-heading">
+        <div><p class="eyebrow">UJI PEMAHAMAN</p><h2>Dengarkan. Pikirkan.<br><span>Buktikan.</span></h2></div>
+        <p class="section-lede">Tantang pemahamanmu lewat konsep dan studi kasus. Setiap jawaban disertai penjelasan agar kamu tahu alasannya.</p>
+      </div>
+      <div class="quiz-card" id="quiz-app">
+        <div class="quiz-start" id="quiz-start">
+          <div class="quiz-start-icon" aria-hidden="true">♩</div>
+          <div><p class="eyebrow">KUIS BAB 2</p><h3>Siap menguji telinga dan pikiran?</h3><p>10 soal pilihan ganda, termasuk skenario penilaian karya musik.</p></div>
+          <button class="button button-dark" id="start-quiz">Mulai kuis <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="quiz-play hidden" id="quiz-play" aria-live="polite">
+          <div class="quiz-topline"><span id="question-count">SOAL 1 DARI 10</span><span id="question-kind">KONSEP</span></div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="quiz-progress"></div></div>
+          <h3 id="question-text"></h3>
+          <div class="answer-list" id="answer-list"></div>
+          <div class="quiz-feedback hidden" id="quiz-feedback" role="status"></div>
+          <div class="quiz-controls"><span id="quiz-score-live">Skor: 0</span><button class="button button-dark" id="next-question" disabled>Periksa jawaban</button></div>
+        </div>
+        <div class="quiz-result hidden" id="quiz-result" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section flash-section" id="kartu">
+      <div class="section-heading">
+        <div><p class="eyebrow">INGAT LEBIH MUDAH</p><h2>Kecilkan jeda.<br><span>Perkuat ingatan.</span></h2></div>
+        <p class="section-lede">Balik kartu untuk menemukan definisi atau contoh. Gunakan tombol atau tekan spasi saat kartu dipilih.</p>
+      </div>
+      <div class="flash-layout">
+        <div class="flash-intro"><span class="flash-count" id="flash-count">01 / 08</span><h3>Delapan konsep<br>penting, satu per satu.</h3><p>Ingat inti konsepnya, lalu hubungkan dengan contoh nyata.</p><div class="flash-controls"><button class="round-button" id="flash-prev" aria-label="Kartu sebelumnya">←</button><button class="round-button" id="flash-next" aria-label="Kartu berikutnya">→</button><span class="flash-hint">KLIK UNTUK MEMBALIK</span></div></div>
+        <button class="flashcard" id="flashcard" aria-label="Balik kartu belajar" aria-pressed="false">
+          <span class="flashcard-top"><span id="flash-side">KONSEP</span><span aria-hidden="true">↻</span></span>
+          <span class="flashcard-main" id="flash-front"></span>
+          <span class="flashcard-bottom" id="flash-back"></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section evaluation-section" id="evaluasi">
+      <div class="section-heading">
+        <div><p class="eyebrow">PRAKTIK APRESIASI</p><h2>Ulas karya dengan<br><span>lebih terarah.</span></h2></div>
+        <p class="section-lede">Gunakan lembar evaluasi untuk mencatat pengamatan auditori dan visual. Nilailah bukti yang terdengar atau terlihat, bukan selera pribadi saja.</p>
+      </div>
+      <form class="evaluation-card" id="evaluation-form">
+        <div class="evaluation-header">
+          <div><p class="eyebrow">LEMBAR EVALUASI KARYA</p><h3>Catatan apresiasi musik</h3><p>Isian tersimpan otomatis di perangkat ini.</p></div>
+          <span class="saved-state" id="saved-state" role="status"><span></span> Tersimpan</span>
+        </div>
+        <div class="form-row">
+          <label class="field-label">Judul karya / penampilan<input name="title" type="text" placeholder="Contoh: Pertunjukan ansambel kelas XI"></label>
+          <label class="field-label">Genre / periode / latar budaya<input name="context" type="text" placeholder="Contoh: Musik tradisional Jawa"></label>
+        </div>
+        <fieldset class="matrix-group">
+          <legend><span>01</span> Unsur & struktur musikal</legend>
+          <p>Amati medium, susunan, dan elemen musik yang terdengar.</p>
+          <div class="check-grid">
+            <label><input type="checkbox" name="musical-elements" value="Medium vokal / instrumen"><span>Medium vokal / instrumen</span></label>
+            <label><input type="checkbox" name="musical-elements" value="Motif, tema, dan frase"><span>Motif, tema, dan frase</span></label>
+            <label><input type="checkbox" name="musical-elements" value="Tempo, metrum, dan ritme"><span>Tempo, metrum, dan ritme</span></label>
+            <label><input type="checkbox" name="musical-elements" value="Melodi, harmoni, dan tekstur"><span>Melodi, harmoni, dan tekstur</span></label>
+            <label><input type="checkbox" name="musical-elements" value="Dinamika dan timbre"><span>Dinamika dan timbre</span></label>
+            <label><input type="checkbox" name="musical-elements" value="Intro, verse, chorus, bridge"><span>Intro, verse, chorus, bridge</span></label>
+          </div>
+          <label class="field-label">Bukti / catatan unsur<textarea name="notes-elements" rows="2" placeholder="Apa yang kamu dengar? Catat contoh spesifik."></textarea></label>
+        </fieldset>
+        <fieldset class="matrix-group">
+          <legend><span>02</span> Teknik & keterampilan</legend>
+          <p>Nilai hal yang dapat diamati dari permainan dan penyajian.</p>
+          <div class="check-grid">
+            <label><input type="checkbox" name="technique" value="Penguasaan instrumen / vokal"><span>Penguasaan instrumen / vokal</span></label>
+            <label><input type="checkbox" name="technique" value="Kualitas rekaman / bunyi"><span>Kualitas rekaman / bunyi</span></label>
+            <label><input type="checkbox" name="technique" value="Kerapian dan keseimbangan ansambel"><span>Kerapian dan keseimbangan ansambel</span></label>
+            <label><input type="checkbox" name="technique" value="Keindahan aransemen"><span>Keindahan aransemen</span></label>
+          </div>
+          <label class="field-label">Bukti / catatan teknik<textarea name="notes-technique" rows="2" placeholder="Contoh: artikulasi jelas, tempo stabil, atau keseimbangan bunyi."></textarea></label>
+        </fieldset>
+        <fieldset class="matrix-group">
+          <legend><span>03</span> Konteks karya</legend>
+          <p>Hubungkan karya dengan latar genre, zaman, atau budaya.</p>
+          <div class="check-grid">
+            <label><input type="checkbox" name="context-check" value="Genre"><span>Genre</span></label>
+            <label><input type="checkbox" name="context-check" value="Periode zaman"><span>Periode zaman</span></label>
+            <label><input type="checkbox" name="context-check" value="Latar belakang budaya"><span>Latar belakang budaya</span></label>
+            <label><input type="checkbox" name="context-check" value="Tujuan / fungsi musik"><span>Tujuan / fungsi musik</span></label>
+          </div>
+          <label class="field-label">Bukti / catatan konteks<textarea name="notes-context" rows="2" placeholder="Apa yang diketahui tentang asal, fungsi, atau zamannya?"></textarea></label>
+        </fieldset>
+        <fieldset class="matrix-group">
+          <legend><span>04</span> Ekspresi & penjiwaan</legend>
+          <p>Amati pesan, emosi, atmosfer, dan cara musisi berkomunikasi.</p>
+          <div class="check-grid">
+            <label><input type="checkbox" name="expression" value="Pesan karya tersampaikan"><span>Pesan karya tersampaikan</span></label>
+            <label><input type="checkbox" name="expression" value="Penghayatan emosi"><span>Penghayatan emosi</span></label>
+            <label><input type="checkbox" name="expression" value="Atmosfer penampilan"><span>Atmosfer penampilan</span></label>
+            <label><input type="checkbox" name="expression" value="Sikap dan etika penampilan"><span>Sikap dan etika penampilan</span></label>
+          </div>
+          <label class="field-label">Bukti / catatan ekspresi<textarea name="notes-expression" rows="2" placeholder="Jelaskan kesan yang muncul dan unsur yang mendukungnya."></textarea></label>
+        </fieldset>
+        <label class="field-label final-opinion">Kesimpulan objektif<textarea name="conclusion" rows="3" placeholder="Rangkum kekuatan karya dengan alasan dan bukti. Hindari hanya menulis suka atau tidak suka."></textarea></label>
+        <div class="evaluation-actions"><button class="button button-dark" type="button" id="export-review">Unduh catatan <span aria-hidden="true">↓</span></button><button class="text-link clear-link" type="button" id="clear-review">Hapus isian</button></div>
+      </form>
+    </section>
+
+    <section class="closing-note">
+      <span class="closing-note-symbol" aria-hidden="true">“</span>
+      <p>Apresiasi yang baik dimulai dari perhatian,<br>lalu tumbuh menjadi pemahaman.</p>
+      <span class="eyebrow">DENGARKAN DENGAN RASA · NILAILAH DENGAN ALASAN</span>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand" href="#beranda"><span class="brand-mark" aria-hidden="true">♫</span><span>ruang<span class="brand-accent">musik</span></span></a><span>SENI MUSIK SMA/MA KELAS XI · BAB 2</span><a href="#beranda">Kembali ke atas ↑</a></footer>
+</body>
+</html>
